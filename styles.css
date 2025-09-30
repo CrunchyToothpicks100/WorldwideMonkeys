@@ -1,0 +1,61 @@
+* {
+    font: bold 20px 'Inconsolata', sans-serif;
+    color: #d1da49
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    flex-wrap: nowrap;
+    background-color: #407e4b;
+}
+.menu {
+    display: flex;
+    align-items: center;
+    flex-wrap: nowrap;
+    margin-left: auto;
+}
+.subtle_button {
+    background-color: #407e4b;
+    color: #502e21;
+    font: bold 20px 'Inconsolata', sans-serif;
+    border: none;
+    padding-block: 10px;
+    padding-inline: 30px;
+    margin-inline: 30px;
+    border-radius: 8px;
+}
+.brown_button {
+    background-color: #502e21;
+    font: bold 20px 'Inconsolata', sans-serif;
+    padding-block: 8px;
+    padding-inline: 30px;
+    margin-inline: 30px;
+    border-radius: 10px;
+}
+.subtle_button:hover, .brown_button:hover {
+    text-decoration: underline;
+}
+.main_content {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    flex-direction: column;
+    flex-wrap: none;
+    height: 600px;
+    background-color: #1c362e;
+}
+h1 {
+    font: 90px 'Irish Grover', sans-serif;
+    margin-inline: 200px;
+}
+.log {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color:#502e21;
+    height: 100px;
+}
+.log > div {
+    margin-inline: 60px;
+}
