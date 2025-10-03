@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Monkey Design Test</title>
+</head>
+<body>
+  <h1>Submit Monkey Design</h1>
+  <button id="submitBtn">Submit Test Monkey</button>
+
+  <script>
+    document.getElementById("submitBtn").addEventListener("click", () => {
+      const monkey = {
+        name: "TestMonkey",
+        head: "#FF0000",
+        body: "#00FF00",
+        eyes: ["#FFFFFF", "#000000"],
+        ears: ["#FF00FF", "#FF00FF"],
+        arms: ["#AAAAAA", "#BBBBBB"],
+        legs: ["#CCCCCC", "#DDDDDD"],
+        feet: ["#000000", "#111111"]
+      };
+
+      fetch("https://localhost:5014/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(monkey)
+      })
+      .then(res => res.json())
+      .then(data => alert(JSON.stringify(data)))
+      .catch(err => console.error(err));
+    });
+  </script>
+</body>
+</html>
