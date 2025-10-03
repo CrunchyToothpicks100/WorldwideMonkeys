@@ -11,10 +11,10 @@ namespace UserDataappCore.Api.Models
         public string Name { get; set; }
 
         [Required]
-        public string Head {  get; set; }
+        public string Head { get; set; }
 
         [Required]
-        public string Body {  get; set; }
+        public string Body { get; set; }
 
         [Required]
         public string[] Eyes { get; set; }

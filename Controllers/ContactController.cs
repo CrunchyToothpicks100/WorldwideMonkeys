@@ -1,19 +1,31 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using UserDataappCore.Api.Models;
+using UserDataappCore.Api.Data;
 
 namespace UserDataappCore.Api.Controllers
 {
     [ApiController]
-    [Route("api/[controller]")]  //Define endpoint
+    [Route("api/[controller]")]
     public class ContactController : ControllerBase
     {
+        private readonly AppDbContext _db;
+
+        public ContactController(AppDbContext db)
+        {
+            _db = db;
+        }
+
         [HttpPost]
         public IActionResult Submit([FromBody] MonkeyDesign form)
         {
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
 
-            return Ok(new { message = "Form submitted successfully" });
+            // Save to database
+            _db.MonkeyDesigns.Add(form);
+            _db.SaveChanges();
+
+            return Ok(new { message = "Form submitted successfully", monkeyId = form.Id });
         }
     }
 }
