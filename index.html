@@ -8,24 +8,61 @@
         <link href="https://fonts.googleapis.com/css?family=Inconsolata" rel="stylesheet">
     </head>
     <body>
+        <!-- Top menu -->
         <div class="header">
             <img src="WWMlogo.png" height="47px">
             <div class="menu">
                 <button class="subtle_button">Leave Feedback</button>
                 <button class="subtle_button">Meet the Monkeys</button>
-                <button class="brown_button">Log In</button>
+                <button class="brown_button" onclick="window.location.href='login.html'">Log In</button>
             </div>
         </div>
 
+        <!-- BIG TEXT -->
         <div class="main_content">
             <h1>Connect with Monkeys Worldwide!</h1>
-            <button class="brown_button" style="font-size: 30px; padding-inline: 60px; padding-block: 20px;">Create Your Monkeys</button>
+            <button class="big_brown_button">Create Your Monkeys</button>
         </div>
 
+        <!-- Users, Monkeys, Bananas -->
         <div class="log">
-            <div>Users:   <span id="users">123</span></div>
-            <div>Monkeys:   <span id="monkeys">123</span></div>
-            <div>Bananas:   <span id="bananas">123</span></div>
+            <div>
+                <div>Users:</div>
+                <div class="data" id="users">123</div>
+            </div>
+            <div>
+                <div>Monkeys:</div>
+                <div class="data" id="monkeys">123</div>
+            </div>
+            <div>
+                <div>Bananas:</div>
+                <div class="data" id="bananas">123</div>
+            </div>
+        </div>
+
+        <!-- About the Zookeepers -->
+        <div class="about_content">
+            <h1 style="margin-top: 40px; margin-bottom: -15px;">About the Zookeepers</h1>
+            <p>Kidding! We aren't really zookeepers. 
+                Oliver this. Haiden that. We're computer science students. 
+                We made this dope website for our Website Administration 
+                class at Missouri Southern State University. 
+                Our zoo needs one million monkeys.</p>
+        </div>
+
+        <!-- Reviews -->
+        <div class="review_content">
+            <h2>Reviews</h2>
+            <p>Under Construction!</p>
+        </div>
+
+        <!-- Bottom menu -->
+        <div class="footer">
+            <img src="WWMlogo.png" height="47px" style="margin-block: 20px;">
+            <div class="menu">
+                <button class="subtle_button">Facebook</button>
+                <button class="subtle_button">YouTube</button>
+            </div>
         </div>
     </body>
 </html>

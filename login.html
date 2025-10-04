@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>WorldWideMonkeys</title>
+        <link href="styles.css" rel="stylesheet">
+        <link href='https://fonts.googleapis.com/css?family=Irish+Grover' rel='stylesheet'>
+        <link href="https://fonts.googleapis.com/css?family=Inconsolata" rel="stylesheet">
+    </head>
+    <body>
+        <!-- Top menu -->
+        <div class="login-header">
+            <img src="WWMlogo.png" height="47px">
+            <div class="menu">
+                <button class="subtle_button" onclick="window.location.href='index.html'">&lt; Back</button>
+            </div>
+        </div>
+
+        <!-- Login -->
+        <div class="login-background">
+            <h2>Login</h2>
+            <form id="login-form" class="login-form" action="index.html" method="post">
+                <span>Username or Email: </span>
+                <input type="text" name="username" required>
+                <span>Password: </span>
+                <input type="password" name="password" required>
+                <button class="brown_button" type="submit">Login</button>
+            </form>
+
+            <script src="login.js"></script>
+        </div>
+    </body>
+</html>
