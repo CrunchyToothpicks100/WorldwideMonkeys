@@ -27,5 +27,13 @@ namespace UserDataappCore.Api.Controllers
 
             return Ok(new { message = "Form submitted successfully", monkeyId = form.Id });
         }
+
+        [HttpGet("all")]
+        public IActionResult GetAll()
+        {
+            var designs = _db.MonkeyDesigns.ToList();
+            return Ok(designs); // returns JSON array
+        }
+
     }
 }
