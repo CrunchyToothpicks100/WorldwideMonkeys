@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>WorldWideMonkeys</title>
+        <link href="styles.css" rel="stylesheet">
+        <link href='https://fonts.googleapis.com/css?family=Irish+Grover' rel='stylesheet'>
+        <link href="https://fonts.googleapis.com/css?family=Inconsolata" rel="stylesheet">
+    </head>
+    <body>
+        <!-- Top menu -->
+        <div class="monkey-header">
+            <img src="WWMlogo.png" height="47px">
+            <div class="menu">
+                <button class="subtle_button" onclick="window.location.href='index.html'">&lt; Back</button>
+            </div>
+        </div>
+
+        <!-- Create -->
+        <div class="monkey-background">
+            <h2 style="margin-left: 5px; margin-top: -5px;">Create Your Monkey</h2>
+            <form id="monkey-form" class="monkey-form" action="index.html" method="post">
+                <label for="name">Name: </label> 
+                <input type="text" id="name" required>
+                <br>
+                <label for="type">Type: </label>
+                <select id="type">
+                    <option value="gorilla">Gorilla</option>
+                    <option value="chimp">Chimp</option>
+                    <option value="orangutan">Orangutan</option>
+                </select>
+                <br>
+                <label for="continent">Continent: </label>
+                <select id="continent">
+                    <option value="asia">Asia</option>
+                    <option value="africa">Africa</option>
+                    <option value="south_america">South America</option>
+                </select>
+                <br>
+                <label for="info">Info: </label> 
+                <textarea id="info" rows="5" cols="40"></textarea>
+                <br>
+                <button class="brown_button" type="submit">Create</button>
+            </form>
+
+            <script src="create.js"></script>
+        </div>
+    </body>
+</html>
