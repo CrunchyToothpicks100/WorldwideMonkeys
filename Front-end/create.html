@@ -9,41 +9,50 @@
     </head>
     <body>
         <!-- Top menu -->
-        <div class="monkey-header">
-            <img src="WWMlogo.png" height="47px">
-            <div class="menu">
-                <button class="subtle_button" onclick="window.location.href='index.html'">&lt; Back</button>
+        <div class="monkey-menu">
+            <div style="margin-left: 20px">
+                WorldWide<span style="font-size: 35px;">Monkeys</span> <span style="font-size: 15px">(and apes!)</span>
+            </div>
+            <div class="menu_items">
+                <button class="subtle_button" onclick="window.location.href='index.html'">&lt; Back to Home</button>
+                <button class="brown_button">Catalog</button>
+                <button class="brown_button">Dashboard</button>
             </div>
         </div>
 
         <!-- Create -->
         <div class="monkey-background">
-            <h2 style="margin-left: 5px; margin-top: -5px;">Create Your Monkey</h2>
-            <form id="monkey-form" class="monkey-form" action="index.html" method="post">
-                <label for="name">Name: </label> 
-                <input type="text" id="name" required>
-                <br>
-                <label for="type">Type: </label>
-                <select id="type">
-                    <option value="gorilla">Gorilla</option>
-                    <option value="chimp">Chimp</option>
-                    <option value="orangutan">Orangutan</option>
-                </select>
-                <br>
-                <label for="continent">Continent: </label>
-                <select id="continent">
-                    <option value="asia">Asia</option>
-                    <option value="africa">Africa</option>
-                    <option value="south_america">South America</option>
-                </select>
-                <br>
-                <label for="info">Info: </label> 
-                <textarea id="info" rows="5" cols="40"></textarea>
-                <br>
+            <h2>Create Your Primate</h2>
+            <form id="create-form" class="monkey-form" action="index.html" method="post">
+                <div>
+                    <label for="name">Name: &nbsp;&nbsp;&nbsp;&nbsp;</label>
+                    <input type="text" id="name" required>
+                </div>
+                <div>
+                    <label for="continent">Continent: </label>
+                    <select id="continent" required>
+                        <option value="">-- Select a continent --</option>
+                        <option value="asia">Asia</option>
+                        <option value="africa">Africa</option>
+                        <option value="south_america">South America</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="type">Type: &nbsp;&nbsp;&nbsp;&nbsp;</label>
+                    <select id="type" required>
+                        <!-- See updatemonkeydropdown.js -->
+                    </select>
+                </div>
+                <div>
+                    <label for="info">Info: &nbsp;&nbsp;&nbsp;&nbsp;</label> 
+                    <textarea id="info" rows="5" cols="40"></textarea>
+                </div>
                 <button class="brown_button" type="submit">Create</button>
+                <div id="success"></div>
             </form>
 
-            <script src="create.js"></script>
+            <script src="updatemonkeydropdown.js"></script>
+            <script src="createform.js"></script>
         </div>
     </body>
 </html>

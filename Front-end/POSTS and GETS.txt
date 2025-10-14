@@ -1,0 +1,40 @@
+-----
+
+newaccountform.js
+
+POST {user: "", email: "", password: ""}
+The API needs to check the account database.
+
+If the data does not exist, store the information in the
+account database with a brand new user_id, and respond with
+{success: "true", message: "Account created!"}
+
+If the data does exist, respond with
+{success: "false", message: "(Email, username, or password) already in use!"}.
+
+-----
+
+loginform.js
+
+POST {user_or_email: "", password: ""}
+The API needs to check the account database.
+
+If the data does not exist, respond with 
+{success: "false", message: "Username / Password not found"}
+
+If the data does exist, respond with
+{success: "true", message: "Login successful!", user_id: ###}.
+
+user_id can be any unique string of numbers or letters.
+
+-----
+
+createform.js
+
+POST {user_id: "", name: "", continent: "", type: "", and info: ""}
+The API will store this information in the monkey database.
+
+If the monkey name is already in use, respond with
+{success: "false"}
+
+Otherwise, store the information and respond with {success: "true"}

@@ -18,23 +18,30 @@
 
         <!-- Login -->
         <div class="monkey-background">
-            <h2>Login</h2>
-            <form id="login-form" class="monkey-form" action="index.html" method="post">
+            <h2>Create New Account</h2>
+            <form id="new-account-form" class="monkey-form" action="index.html" method="post">
                 <div>
-                    <label for="user_or_email">Username<br>or Email: </label>
-                    <input id="user_or_email" type="text" name="user_or_email" required>
+                    <label for="email">Email: </label>
+                    <input id="email" type="text" name="email" required>
+                </div>
+                <div>
+                    <label for="user">Username: </label>
+                    <input id="user" type="text" name="user" required>
                 </div>
                 <div>
                     <label for="password">Password: </label>
                     <input id="password" type="password" name="password" required>
                 </div>
-                <button class="brown_button" type="submit">Login</button>
-                <button class="subtle_button" onclick="window.location.href='newaccount.html'">Create New Account</button>
+                <div>
+                    <label for="conf-password">Confirm<br>Password: </label>
+                    <input id="conf-password" type="password" name="conf-password" style="vertical-align: bottom;" required>
+                </div>
+                <button class="brown_button" type="submit">Submit</button>
                 <!-- output message -->
                 <div id="success"></div>
             </form>
 
-            <script src="loginform.js"></script>
+            <script src="newaccountform.js"></script>
         </div>
     </body>
 </html>
