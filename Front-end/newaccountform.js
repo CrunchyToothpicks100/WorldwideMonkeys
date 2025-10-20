@@ -23,7 +23,7 @@ form.addEventListener("submit", async (e) => {
     console.log("JSON data:", jsonData); // For debugging
 
     // Send JSON to the backend
-    const response = await fetch("https://localhost:5014/api/contact", {
+    const response = await fetch("https://localhost:5014/api/Users/register", {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
