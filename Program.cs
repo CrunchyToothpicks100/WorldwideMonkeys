@@ -11,6 +11,9 @@ var dbPath = Path.Combine(AppContext.BaseDirectory, "monkeys.db");
 builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseSqlite($"Data Source={dbPath}"));
 
+builder.Services.AddDbContext<AppDbContext>(options =>
+    options.UseSqlite("Data Source=Users.db"));
+
 // Add controllers
 builder.Services.AddControllers()
     .AddNewtonsoftJson(); // for array/JSON handling

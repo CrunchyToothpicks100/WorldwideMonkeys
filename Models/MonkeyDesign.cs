@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace UserDataappCore.Api.Models
 {
@@ -11,24 +12,19 @@ namespace UserDataappCore.Api.Models
         public string Name { get; set; }
 
         [Required]
-        public string Head { get; set; }
+        public string Continent { get; set; }
 
         [Required]
-        public string Body { get; set; }
+        public string Type { get; set; }
 
         [Required]
-        public string[] Eyes { get; set; }
+        public string Info { get; set; }
 
-        [Required]
-        public string[] Ears { get; set; }
 
-        [Required]
-        public string[] Arms { get; set; }
+       // Link to the user who created it
+       [ForeignKey("User")]
+       public int UserId { get; set; }
+       public User? User { get; set; }
 
-        [Required]
-        public string[] Legs { get; set; }
-
-        [Required]
-        public string[] Feet { get; set; }
     }
 }

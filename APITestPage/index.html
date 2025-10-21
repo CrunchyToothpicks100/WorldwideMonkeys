@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>WorldWideMonkeys</title>
+    <link href="styles.css" rel="stylesheet">
+</head>
+<body>
+    <h1>WorldWideMonkeys</h1>
+
+    <!-- Registration -->
+    <section>
+        <h2>Register</h2>
+        <form id="registerForm">
+            <input type="text" id="regUsername" placeholder="Username" required>
+            <input type="email" id="regEmail" placeholder="Email" required>
+            <input type="password" id="regPassword" placeholder="Password" required>
+            <button type="submit">Register</button>
+        </form>
+        <div id="registerMessage"></div>
+    </section>
+
+    <!-- Login -->
+    <section>
+      <form id="loginForm">
+    <div>
+        <label for="loginUsername">Username:</label>
+        <input id="loginUsername" name="loginUsername" type="text" required>
+    </div>
+    <div>
+        <label for="loginEmail">Email:</label>
+        <input id="loginEmail" name="loginEmail" type="email" required>
+    </div>
+    <div>
+        <label for="loginPassword">Password:</label>
+        <input id="loginPassword" name="loginPassword" type="password" required>
+    </div>
+    <button type="submit">Login</button>
+</form>
+<div id="loginResult"></div>
+
+    </section>
+
+    <!-- Monkey creation -->
+    <section>
+        <h2>Create Monkey</h2>
+        <form id="monkeyForm">
+            <input type="text" id="monkeyName" placeholder="Name" required>
+            <input type="text" id="monkeyContinent" placeholder="Continent" required>
+            <input type="text" id="monkeyType" placeholder="Type" required>
+            <textarea id="monkeyInfo" placeholder="Info" required></textarea>
+            <button type="submit">Create Monkey</button>
+        </form>
+        <div id="monkeyMessage"></div>
+    </section>
+
+    <script src="app.js"></script>
+</body>
+</html>
