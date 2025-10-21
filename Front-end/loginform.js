@@ -37,6 +37,7 @@ form.addEventListener("submit", async (e) => {
         document.getElementById("success").innerHTML = responseData.message;
     else {
         // Login succcesful! Store user_id locally and switch to home page
+        document.getElementById("success").style.color = "#d1da49"
         document.getElementById("success").innerHTML = responseData.message;
         localStorage.setItem("user_id", responseData.user_id);
         window.location.replace("index.html");

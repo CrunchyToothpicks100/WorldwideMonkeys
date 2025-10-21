@@ -39,7 +39,7 @@ form.addEventListener("submit", async (e) => {
     if (!response.ok) {
         // API is not okay, HTTP Code 3xx, 4xx, or 5xx.
         console.error("Request failed:", response.status);
-        document.getElementById("success").innerHTML = `Error: ${response.status}`;
+        document.getElementById("success").innerHTML = `${response.status}`;
         return;
     }
     
@@ -51,6 +51,7 @@ form.addEventListener("submit", async (e) => {
         document.getElementById("success").innerHTML = "Monkey name already in use";
     else {
         // Monkey created!
+        document.getElementById("success").style.color = "#d1da49";
         document.getElementById("success").innerHTML = "Monkey Created! Visit your monkey in the dashboard.";
     }
 });

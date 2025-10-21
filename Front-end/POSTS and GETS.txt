@@ -1,6 +1,6 @@
 -----
 
-newaccountform.js
+newaccountform.js - Creating a new account
 
 POST {user: "", email: "", password: ""}
 The API needs to check the account database.
@@ -14,7 +14,7 @@ If the data does exist, respond with
 
 -----
 
-loginform.js
+loginform.js - Logging in
 
 POST {user_or_email: "", password: ""}
 The API needs to check the account database.
@@ -29,12 +29,11 @@ user_id can be any unique string of numbers or letters.
 
 -----
 
-createform.js
+createform.js - Creating a monkey
 
 POST {user_id: "", name: "", continent: "", type: "", and info: ""}
-The API will store this information in the monkey database.
 
-If the monkey name is already in use, respond with
+If the user has another monkey with the same name, respond with
 {success: "false"}
 
 Otherwise, store the information and respond with {success: "true"}

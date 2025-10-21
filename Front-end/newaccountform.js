@@ -47,6 +47,7 @@ form.addEventListener("submit", async (e) => {
     }
     else { 
         // Account successfully created, switch to login page
+        document.getElementById("success").style.color = "#d1da49"
         document.getElementById("success").innerHTML = responseData.message;
         window.location.replace("login.html");
     }

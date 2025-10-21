@@ -5,7 +5,7 @@
 body {
     margin: 0;
 }
-.menu {
+.sticky-menu {
     min-height: 47px;
     display: flex;
     position: sticky;
@@ -120,14 +120,6 @@ h2 {
 .footer .subtle_button {
     color: #d1da49;
 }
-.login-menu {
-    min-height: 47px;
-    display: flex;
-    align-items: center;
-    flex-wrap: nowrap;
-    background-color: #407e4b;
-    justify-content: space-between;
-}
 .monkey-menu {
     min-height: 47px;
     display: flex;
@@ -169,7 +161,7 @@ h2 {
 }
 .monkey-form input {
     vertical-align: bottom;
-    max-width: 20vw;
+    width: 280px;
 }
 #success {
     margin-bottom: 0px;
