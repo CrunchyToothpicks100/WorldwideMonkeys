@@ -44,7 +44,8 @@ namespace UserDataappCore.Api.Controllers
         {
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
-            var user = await _context.Users.FirstOrDefaultAsync(u => u.Username == login.Username);
+            var user = await _context.Users.FirstOrDefaultAsync(u => u.Username == login.Username || u.Email == login.Email);
+
 
             if (user == null || user.PasswordHash != HashPassword(login.PasswordHash))
                 return Unauthorized("Invalid username/password");

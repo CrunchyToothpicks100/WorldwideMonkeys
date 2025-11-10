@@ -21,24 +21,20 @@
             <h2>Login</h2>
             <form id="login-form" class="monkey-form" action="index.html" method="post">
                 <div>
-                    <label for="loginUser">Username: </label>
-                    <input id="loginUser" type="text" name="loginUser" required>
+                    <label for="user_or_email">Username<br>or Email: </label>
+                    <input id="user_or_email" type="text" name="user_or_email" required>
                 </div>
                 <div>
-                    <label for="loginEmail">Email: </label>
-                    <input id="loginEmail" type="email" name="loginEmail" required>
-                </div>
-                <div>
-                    <label for="loginPassword">Password: </label>
-                    <input id="loginPassword" type="password" name="loginPassword" required>
+                    <label for="password">Password: </label>
+                    <input id="password" type="password" name="password" required>
                 </div>
                 <button class="brown_button" type="submit">Login</button>
-                <button class="subtle_button" onclick="window.location.href='register.html'">Create New Account</button>
+                <button class="subtle_button" onclick="window.location.href='newaccount.html'">Create New Account</button>
                 <!-- output message -->
                 <div id="success"></div>
             </form>
 
-            <script src="login.js"></script>
+            <script src="loginform.js"></script>
         </div>
     </body>
 </html>
