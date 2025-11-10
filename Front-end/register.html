@@ -16,32 +16,32 @@
             <button class="subtle_button" onclick="window.location.href='index.html'">&lt; Back to Home</button>
         </div>
 
-        <!-- Login -->
+        <!-- Register -->
         <div class="monkey-background">
             <h2>Create New Account</h2>
-            <form id="new-account-form" class="monkey-form" action="index.html" method="post">
+            <form id="register-form" class="monkey-form" action="index.html" method="post">
                 <div>
                     <label for="email">Email: </label>
-                    <input id="email" type="text" name="email" required>
+                    <input id="regEmail" type="text" name="email" required>
                 </div>
                 <div>
                     <label for="user">Username: </label>
-                    <input id="user" type="text" name="user" required>
+                    <input id="regUser" type="text" name="user" required>
                 </div>
                 <div>
                     <label for="password">Password: </label>
-                    <input id="password" type="password" name="password" required>
+                    <input id="regPassword" type="password" name="password" required>
                 </div>
                 <div>
                     <label for="conf-password">Confirm<br>Password: </label>
-                    <input id="conf-password" type="password" name="conf-password" style="vertical-align: bottom;" required>
+                    <input id="regConfPassword" type="password" name="conf-password" style="vertical-align: bottom;" required>
                 </div>
                 <button class="brown_button" type="submit">Submit</button>
                 <!-- output message -->
                 <div id="success"></div>
             </form>
 
-            <script src="newaccountform.js"></script>
+            <script src="register.js"></script>
         </div>
     </body>
 </html>
