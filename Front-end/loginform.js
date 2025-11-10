@@ -7,14 +7,15 @@ form.addEventListener("submit", async (e) => {
     const password = document.getElementById("password").value;
 
     jsonData = {
-        user_or_email,
-        password
+		Username: user_or_email,
+		Email: user_or_email,
+        PasswordHash: password
     };
 
     console.log("JSON data:", jsonData); // For debugging
 
     // Send JSON to the backend
-    const response = await fetch("https://localhost:5014/api/contact", {
+    const response = await fetch("https://localhost:7264/api/Users/login", {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
@@ -39,7 +40,11 @@ form.addEventListener("submit", async (e) => {
         // Login succcesful! Store user_id locally and switch to home page
         document.getElementById("success").style.color = "#d1da49"
         document.getElementById("success").innerHTML = responseData.message;
-        localStorage.setItem("user_id", responseData.user_id);
+        localStorage.setItem("user_id", responseData.userID);
+		
+		console.log("Saved user_id:", responseData.userID);
+console.log("LocalStorage now contains:", localStorage.getItem("user_id"));
+
         window.location.replace("index.html");
     }
 });

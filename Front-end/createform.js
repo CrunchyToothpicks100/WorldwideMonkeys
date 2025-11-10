@@ -3,7 +3,7 @@ const form = document.getElementById("create-form");
 form.addEventListener("submit", async (e) => {
     e.preventDefault(); // prevent default page reload
     
-    const user_id = 0;
+    var user_id = 0;
     try {
         user_id = localStorage.getItem("user_id");
     } catch (error) {
@@ -16,19 +16,21 @@ form.addEventListener("submit", async (e) => {
     const type = document.getElementById("type").value;
     const info = document.getElementById("info").value.trim();
 
+	console.log("Retrieved user_id from localStorage:", user_id);
+
     // Convert to JSON
     const jsonData = {
-        user_id,
-        name,
-        continent,
-        type,
-        info
+        Name: name,
+        Continent: continent,
+        Type: type,
+        Info: info,
+        UserId: parseInt(user_id) // <-- correct key name
     };
 
-    console.log("JSON data:", jsonData); // For debugging
+    
 
     // Send JSON to the backend
-    const response = await fetch("https://localhost:5014/api/contact", {
+    const response = await fetch("https://localhost:7264/api/Monkey", {
         method: "POST",
         headers: {
             "Content-Type": "application/json"

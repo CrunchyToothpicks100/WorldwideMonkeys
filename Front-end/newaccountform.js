@@ -3,27 +3,27 @@ const form = document.getElementById("new-account-form");
 form.addEventListener("submit", async (e) => {
     e.preventDefault(); // prevent default page reload
 
-    const user = document.getElementById("user").value;
-    const email = document.getElementById("email").value;
-    const password = document.getElementById("password").value;
+    const Username = document.getElementById("user").value;
+    const Email = document.getElementById("email").value;
+    const Password = document.getElementById("password").value;
     const conf_password = document.getElementById("conf-password").value;
 
     // Check for mismatched passwords
-    if (password !== conf_password) {
+    if (Password !== conf_password) {
         document.getElementById("success").innerHTML = "Confirm password does not match";
         return;
     }
 
     jsonData = {
-        user,
-        email,
-        password,
+        Username,
+        Email,
+        PasswordHash: Password
     };
 
     console.log("JSON data:", jsonData); // For debugging
 
     // Send JSON to the backend
-    const response = await fetch("https://localhost:5014/api/Users/register", {
+    const response = await fetch("http://localhost:5104/api/Users/register", {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
