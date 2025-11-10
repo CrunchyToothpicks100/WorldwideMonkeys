@@ -1,5 +1,6 @@
 const form = document.getElementById("login-form");
 
+
 form.addEventListener("submit", async (e) => {
     e.preventDefault(); // prevent default page reload
 
@@ -15,7 +16,7 @@ form.addEventListener("submit", async (e) => {
     console.log("JSON data:", jsonData); // For debugging
 
     // Send JSON to the backend
-    const response = await fetch("https://localhost:7264/api/Users/login", {
+    const response = await fetch("https://192.168.12.110:7264/api/Users/login", {
         method: "POST",
         headers: {
             "Content-Type": "application/json"

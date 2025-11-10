@@ -1,5 +1,6 @@
 const loginForm = document.getElementById('login-form');
 
+
 loginForm.addEventListener('submit', async (e) => {
     e.preventDefault();
 
@@ -12,7 +13,7 @@ loginForm.addEventListener('submit', async (e) => {
     console.log("Sending login data:", data); // Debug
 
     try {
-        const response = await fetch('https://localhost:7264/api/Users/login', {
+        const response = await fetch('https://192.168.12.110:7264/api/Users/login', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(data)

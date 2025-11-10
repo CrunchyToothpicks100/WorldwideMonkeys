@@ -1,5 +1,6 @@
 const monkeyForm = document.getElementById('create-form');
 
+
 monkeyForm.addEventListener('submit', async (e) => {
     e.preventDefault();
 
@@ -20,7 +21,7 @@ monkeyForm.addEventListener('submit', async (e) => {
     console.log("Sending monkey data:", data);
 
     try {
-        const response = await fetch('https://localhost:7264/api/Monkey', {
+        const response = await fetch('https://192.168.12.110:7264/api/Monkey', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(data)

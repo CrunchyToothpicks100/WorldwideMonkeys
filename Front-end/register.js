@@ -1,4 +1,5 @@
 const registerForm = document.getElementById("register-form");
+
 registerForm.addEventListener("submit", async (e) => {
     e.preventDefault();
     console.log("Register form submitted");
@@ -12,13 +13,13 @@ registerForm.addEventListener("submit", async (e) => {
     const confPassword = document.getElementById("regConfPassword");
 
     // Check for mismatched passwords
-    if (PasswordHash !== confPassword) {
+    if (data.PasswordHash !== confPassword.value) {
         document.getElementById("success").innerHTML = "Confirm password does not match";
         return;
     }
 
     try {
-        const res = await fetch("https://localhost:7264/api/Users/register", {
+        const res = await fetch("https://192.168.12.110:7264/api/Users/register", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(data)
