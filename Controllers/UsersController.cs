@@ -30,7 +30,7 @@ namespace UserDataappCore.Api.Controllers
                 return BadRequest(ModelState); // <— Add this
 
             if (await _context.Users.AnyAsync(u => u.Username == user.Username))
-                return BadRequest("Username already exists");
+                return BadRequest(new {message = "Username already exists"});
 
             if (await _context.Users.AnyAsync(u => u.Email == user.Email))
                 return BadRequest(new { message = "Email already exists" });
