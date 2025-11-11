@@ -16,7 +16,7 @@ namespace UserDataappCore.Api.Controllers
         {
             _db = db;
         }
-
+        //POST: Logs created monkeys to database
         [HttpPost]
         public async Task<IActionResult> Submit([FromBody] MonkeyDesign form)
         {
@@ -31,7 +31,7 @@ namespace UserDataappCore.Api.Controllers
             await _db.SaveChangesAsync(); //Add monkey to Database
             return Ok(new { message = "Form submitted successfully", monkeyId = form.Id });
         }
-
+        //GET: Returns all monkey in database 
         [HttpGet("all")]
         public async Task<IActionResult> GetAll()
         {
@@ -51,7 +51,7 @@ namespace UserDataappCore.Api.Controllers
             return Ok(designs);
         }
 
-
+        //GET: Returns all monkeys for a given user
         [HttpGet("user/{userId}")]
         public async Task<IActionResult> GetByUser(int userId)
         {

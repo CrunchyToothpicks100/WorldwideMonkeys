@@ -23,7 +23,7 @@ form.addEventListener("submit", async (e) => {
     console.log("JSON data:", jsonData); // For debugging
 
     // Send JSON to the backend
-    const response = await fetch("http://192.168.12.110:7264/api/Users/register", {
+    const response = await fetch("http://10.102.83.86:7264/api/Users/register", {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
@@ -36,6 +36,10 @@ form.addEventListener("submit", async (e) => {
 
     if (!response.ok) { 
         // Account already taken or other server error
+<<<<<<< HEAD
+=======
+        console.error("Request failed: ", responseData.message);
+>>>>>>> 6653f4152873122fb85f4d66e819602c9545e324
         document.getElementById("success").innerHTML = `Error: ${responseData.message}`;
         return;
     }
