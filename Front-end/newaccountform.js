@@ -36,7 +36,6 @@ form.addEventListener("submit", async (e) => {
 
     if (!response.ok) { 
         // Account already taken or other server error
-        console.error("Request failed: ", response.status, responseData.message);
         document.getElementById("success").innerHTML = `Error: ${responseData.message}`;
         return;
     }
