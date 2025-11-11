@@ -31,23 +31,20 @@ form.addEventListener("submit", async (e) => {
         body: JSON.stringify(jsonData)
     });
 
-    if (!response.ok) {
-        // API issues
-        console.error("Request failed:", response.status);
-        document.getElementById("success").innerHTML = `Error: ${response.status}`;
-        return;
-    }
-
     const responseData = await response.json();
     console.log(responseData);
 
-    if (responseData.success === false) {
-        // Username or email already taken
-        document.getElementById("success").innerHTML = responseData.message;
-    } else {
-        // Account successfully created, switch to login page
-        document.getElementById("success").style.color = "#d1da49";
-        document.getElementById("success").innerHTML = responseData.message;
-        window.location.replace("login.html");
+    if (!response.ok) { 
+        // Account already taken or other server error
+        console.error("Request failed: ", response.status, responseData.message);
+        document.getElementById("success").innerHTML = `Error: ${responseData.message}`;
+        return;
     }
+
+    // Account successfully created, switch to home page
+    document.getElementById("success").style.color = "#d1da49";
+    document.getElementById("success").innerHTML = responseData.message;
+    setTimeout(() => {
+        window.location.replace("index.html");
+    }, 2000);
 });
