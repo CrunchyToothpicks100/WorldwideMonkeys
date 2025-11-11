@@ -22,8 +22,13 @@ namespace UserDataappCore.Api.Controllers
 
         //POST: Register Users
         [HttpPost("register")]
-        public async Task<IActionResult> Regiser([FromBody] User user)
+        public async Task<IActionResult> Register([FromBody] User user)
         {
+            Console.WriteLine($"Incoming payload: Username={user.Username}, Email={user.Email}, PasswordHash={user.PasswordHash}");
+
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState); // <— Add this
+
             if (await _context.Users.AnyAsync(u => u.Username == user.Username))
                 return BadRequest("Username already exists");
 
@@ -32,15 +37,15 @@ namespace UserDataappCore.Api.Controllers
 
             user.PasswordHash = HashPassword(user.PasswordHash);
             _context.Users.Add(user);
-
             await _context.SaveChangesAsync();
 
-            //Cant provide multiple messages, will have to operate on the 200 status code
-            return Ok(new {message = "Account Created Succesfully"});
+            return Ok(new { message = "Account Created Successfully" });
         }
+
+        
         //POST: Handles login
         [HttpPost("login")]
-        public async Task<IActionResult> Login([FromBody] User login)
+        public async Task<IActionResult> Login([FromBody] LoginRequest login)
         {
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
@@ -57,6 +62,7 @@ namespace UserDataappCore.Api.Controllers
 
             return Ok(new { message = "Login successful", userID = user.Id });
         }
+
 
         //Manages password security
         //TODO: Implement system to hide hashed password so not found in request body
