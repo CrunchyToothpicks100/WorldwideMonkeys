@@ -192,12 +192,12 @@ h3 {
 /* Monkey list / card styles */
 .monkey-list {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    grid-template-columns: repeat(auto-fill, 300px);
     gap: 18px;
     margin: 20px 15px;
 }
 .monkey-card {
-    background: linear-gradient(180deg, #2b5a3e 0%, #214834 100%);
+    background: linear-gradient(180deg, #407e4b 25%, #284f30 100%);
     border: 1px solid rgba(0,0,0,0.25);
     padding: 14px;
     border-radius: 10px;

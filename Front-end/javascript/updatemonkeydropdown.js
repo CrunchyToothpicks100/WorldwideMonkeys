@@ -4,7 +4,7 @@ const typeSelect = document.getElementById("type");
 // Which species are native to each continent
 const typeOptions = {
     africa: ["Baboon", "Chimpanzee", "Mandrill", "Vervet"],
-    asia: ["Orangutan", "Macaques", "Gibbons", "Leaf Monkey"],
+    asia: ["Orangutan", "Macaque", "Gibbon", "Leaf Monkey"],
     south_america: ["Capuchin", "Howler", "Spider", "Woolly"]
 };
 

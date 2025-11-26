@@ -11,19 +11,20 @@ function escapeHtml(str) {
         .replace(/'/g, '&#39;');
 }
 
-function createMonkeyCard(m) {
+function createMonkeyCard(monkey) {
     const card = document.createElement('div');
     card.className = 'monkey-card';
 
-    // Normalize possible casing from API (Name vs name)
-    const name = m.Name ?? m.name ?? 'Unnamed';
-    const type = m.Type ?? m.type ?? '';
-    const continent = m.Continent ?? m.continent ?? '';
-    const info = m.Info ?? m.info ?? '';
-    const username = m.Username ?? m.username ?? '';
+    // IMPORTANT: Normalize possible casing from API (Name vs name)
+    const name = monkey.Name;
+    const type = monkey.Type;
+    const continent = monkey.Continent;
+    const info = monkey.Info;
+    const username = monkey.Username;
 
     card.innerHTML = `
         <div class="monkey-card-inner">
+            <img class="monkey-image" src="assets/monkey_pics/${escapeHtml(type)}.jpg" alt="Monkey Image">
             <h3 class="monkey-name">${escapeHtml(name)}</h3>
             <div class="monkey-meta">${escapeHtml(type)} — ${escapeHtml(continent)}</div>
             <p class="monkey-info">${escapeHtml(info)}</p>
@@ -40,8 +41,22 @@ async function loadMonkeys() {
 
     // Optional test card
     if (BYPASS_CREATE) {
-        const sample = { Name: 'Sample Monkey', Type: 'Test', Continent: 'Nowhere', Info: 'Demo card', Username: 'tester' };
+        const sample = { 
+            Name: 'Jimmy (Sample)', 
+            Type: 'Woolly', 
+            Continent: 'South America', 
+            Info: 'Jimmy is blah blah blah...',
+            Username: localStorage.getItem('username') || 'tester'
+        };
+        const sample2 = { 
+            Name: 'George (Sample)', 
+            Type: 'Orangutan', 
+            Continent: 'Asia', 
+            Info: 'George loves to swing from trees...',
+            Username: localStorage.getItem('username') || 'tester'
+        };
         monkeyList.appendChild(createMonkeyCard(sample));
+        monkeyList.appendChild(createMonkeyCard(sample2));
         return;
     }
 
