@@ -4,12 +4,21 @@ form.addEventListener("submit", async (e) => {
     e.preventDefault(); // prevent default page reload
 
     const BYPASS_LOGIN = true;
-    
+
+    console.log("Login form submitted");
+
+    // Bypass login for testing purposes
     if (BYPASS_LOGIN) {
-        // Bypass login for testing purposes
+        document.getElementById("success").style.color = "#d1da49";
+        document.getElementById("success").innerHTML = "Login successful! Redirecting...";
+
         localStorage.setItem("user_id", 9999);
         localStorage.setItem("username", "TestUser");
-        window.location.replace("index_logged_in.html");
+
+        setTimeout(() => {
+            window.location.replace("index_logged_in.html");
+        }, 1000);
+
         return;
     }
 
@@ -34,7 +43,7 @@ form.addEventListener("submit", async (e) => {
         });
 
         if (!response.ok) {
-            // 
+            // Bad request (400) Invalid username/password (401)
             console.error("Request failed:", response.status);
             document.getElementById("success").innerHTML = `Error: ${response.status}`;
             return;
@@ -42,27 +51,24 @@ form.addEventListener("submit", async (e) => {
 
         const responseData = await response.json();
         console.log(responseData);
+        
+        document.getElementById("success").style.color = "#d1da49";
+        document.getElementById("success").innerHTML = responseData.message;
 
-        if (responseData.success === "false") {
-            document.getElementById("success").innerHTML = responseData.message;
-        } else {
-            document.getElementById("success").style.color = "#d1da49";
-            document.getElementById("success").innerHTML = responseData.message;
+        // Store user_id from API
+        localStorage.setItem("user_id", responseData.userID);
+        localStorage.setItem("username", responseData.username);
 
-            // Store user_id from API
-            localStorage.setItem("user_id", responseData.userID);
-            localStorage.setItem("username", responseData.username);
+        console.log("Saved user_id:", responseData.userID);
+        console.log("Saved username:", responseData.username);
 
-            console.log("Saved user_id:", responseData.userID);
-            console.log("LocalStorage now contains:", localStorage.getItem("user_id"));
+        setTimeout(() => {
+            window.location.replace("index_logged_in.html");
+        }, 2000);
 
-            setTimeout(() => {
-                window.location.replace("index_logged_in.html");
-            }, 2000);
-        }
     } catch (err) {
         // No response from server
         console.error("Error connecting to server:", err);
-        document.getElementById("success").innerHTML = "Error connecting to server.";
+        document.getElementById("success").innerHTML = "Error connecting to server";
     }
 });

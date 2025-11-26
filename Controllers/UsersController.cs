@@ -60,7 +60,7 @@ namespace UserDataappCore.Api.Controllers
             foreach (var u in allUsers)
                 Console.WriteLine($"{u.Id}: {u.Username} - {u.PasswordHash}");
 
-            return Ok(new { message = "Login successful", userID = user.Id, username = user.Username });
+            return Ok(new { message = "Login successful! Redirecting...", userID = user.Id, username = user.Username });
         }
 
 

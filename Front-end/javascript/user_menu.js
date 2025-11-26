@@ -34,5 +34,7 @@ function openMenu(evt) {
 function logout() {
     localStorage.removeItem('user_id');
     localStorage.removeItem('username');
-    window.location.href = 'index.html';
+    setTimeout(() => {
+        window.location.href = 'index.html';
+    }, 200);
 }
