@@ -1,13 +1,13 @@
 const form = document.getElementById("login-form");
 
+const BYPASS_LOGIN = false;  // Toggle to bypass login for testing purposes
+
 form.addEventListener("submit", async (e) => {
     e.preventDefault(); // prevent default page reload
 
-    const BYPASS_LOGIN = true;
-
     console.log("Login form submitted");
 
-    // Bypass login for testing purposes
+    // Dummy login
     if (BYPASS_LOGIN) {
         document.getElementById("success").style.color = "#d1da49";
         document.getElementById("success").innerHTML = "Login successful! Redirecting...";
@@ -32,8 +32,6 @@ form.addEventListener("submit", async (e) => {
     };
 
     console.log("JSON data:", jsonData); // For debugging
-
-
 
     try {
         const response = await fetch("http://10.102.83.86:7264/api/Users/login", {

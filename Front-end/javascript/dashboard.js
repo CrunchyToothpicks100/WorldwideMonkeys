@@ -1,6 +1,8 @@
-// Toggle to insert a dummy card for layout/testing. Set to false for real fetch rendering.
-const BYPASS_CREATE = true;
+// true: insert dummy cards for layout/testing
+// false: fetch user's monkeys from API
+const BYPASS_MONKEY_FETCH = false;
 
+// Handle characters that will break HTML structure
 function escapeHtml(str) {
     if (!str && str !== 0) return '';
     return String(str)
@@ -39,8 +41,8 @@ async function loadMonkeys() {
     const status = document.getElementById('success');
     if (!monkeyList) return;
 
-    // Optional test card
-    if (BYPASS_CREATE) {
+    // Dummy sample cards for testing layout
+    if (BYPASS_MONKEY_FETCH) {
         const sample = { 
             Name: 'Jimmy (Sample)', 
             Type: 'Woolly', 
@@ -67,7 +69,7 @@ async function loadMonkeys() {
             return;
         }
 
-        const response = await fetch(`http://10.102.83.86:7264/api/user/${user_id}`, {
+        const response = await fetch(`http://10.102.83.86:7264/api/Monkey/user/${userId}`, {
             method: 'GET',
             headers: { 'Content-Type': 'application/json' }
         });

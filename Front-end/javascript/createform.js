@@ -49,14 +49,9 @@ form.addEventListener("submit", async (e) => {
         const responseData = await response.json();
         console.log(responseData);
 
-        if (responseData.success == "false")
-            // Monkey name already in use
-            document.getElementById("success").innerHTML = "Monkey name already in use";
-        else {
-            // Monkey created!
-            document.getElementById("success").style.color = "#d1da49";
-            document.getElementById("success").innerHTML = "Monkey Created! Visit your monkey in the dashboard.";
-        }
+        // Monkey created!
+        document.getElementById("success").style.color = "#d1da49";
+        document.getElementById("success").innerHTML = "Monkey Created! Visit your monkey in the dashboard.";
 
     } catch (err) {
         // No response from server
