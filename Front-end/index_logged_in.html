@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>WorldWideMonkeys</title>
+    <link href="styles.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Irish+Grover" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Inconsolata" rel="stylesheet">
+</head>
+
+<body>
+    <!-- USER IS LOGGED IN -->
+
+    <!-- Top menu -->
+    <div class="sticky-menu">
+        <div style="margin-left: 20px">
+            WorldWide<span style="font-size: 35px;">Monkeys</span> <span style="font-size: 15px">(and apes!)</span>
+        </div>
+        <div class="menu_items">
+            <button class="subtle_button">Leave Feedback</button>
+            <button class="subtle_button" onclick="window.location.href='dashboard.html'">Dashboard</button>
+            <button class="subtle_button" onclick="window.location.href='catalog.html'">Catalog</button>
+            <button id="user-menu-button" class="subtle_button" onclick="openMenu(event)"></button>
+            <script type="text/javascript" src="javascript/user_menu.js"></script>
+        </div>
+    </div>
+
+    <!-- BIG TEXT -->
+    <div class="main_content">
+        <h1>Monkeys Needed!</h1>
+        <button class="big_brown_button" onclick="window.location.href='create.html'">Create Your Monkeys<br><span
+                style="font-size: 15px">(and apes!)</span></button>
+    </div>
+
+    <!-- Users, Monkeys, Bananas -->
+    <div class="log">
+        <div>
+            <div>Users:</div>
+            <div class="data" id="users">123</div>
+        </div>
+        <div>
+            <div>Primates:</div>
+            <div class="data" id="primates">123</div>
+        </div>
+        <div>
+            <div>Bananas:</div>
+            <div class="data" id="bananas">123</div>
+        </div>
+    </div>
+
+    <!-- About the Zookeepers -->
+    <div class="about_content">
+        <h1 style="margin-top: 40px; margin-bottom: -15px;">About the Devs</h1>
+        <p>Oliver this. Haiden that. We're computer science students.
+            We made this dope website for our Website Administration
+            class at Missouri Southern State University.
+            Our zoo needs one million monkeys (or apes).</p>
+    </div>
+
+    <!-- Top 3 Monkeys -->
+    <div class="top_three_content">
+        <h2>Top 3 Primates:</h2>
+        <p>Under Construction!</p>
+    </div>
+
+    <!-- Bottom menu -->
+    <div class="footer">
+        <div style="margin: 20px">
+            WorldWide<span style="font-size: 35px;">Monkeys</span> <span style="font-size: 15px">(and apes!)</span>
+        </div>
+        <div class="menu_items">
+            <button class="subtle_button">Facebook</button>
+            <button class="subtle_button">YouTube</button>
+        </div>
+    </div>
+</body>
+
+</html>

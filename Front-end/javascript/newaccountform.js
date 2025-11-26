@@ -36,18 +36,15 @@ form.addEventListener("submit", async (e) => {
 
     if (!response.ok) { 
         // Account already taken or other server error
-<<<<<<< HEAD
-=======
         console.error("Request failed: ", responseData.message);
->>>>>>> 6653f4152873122fb85f4d66e819602c9545e324
         document.getElementById("success").innerHTML = `Error: ${responseData.message}`;
         return;
     }
 
     // Account successfully created, switch to home page
     document.getElementById("success").style.color = "#d1da49";
-    document.getElementById("success").innerHTML = responseData.message;
+    document.getElementById("success").innerHTML = responseData.message; 
     setTimeout(() => {
-        window.location.replace("index.html");
+        window.location.replace("index_logged_in.html");
     }, 2000);
 });
