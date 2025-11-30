@@ -1,5 +1,9 @@
 const form = document.getElementById("create-form");
 
+// helper to get selected option text
+function getSelectedText(selectElement) {
+    return selectElement.options[selectElement.selectedIndex].text;
+}
 
 form.addEventListener("submit", async (e) => {
     e.preventDefault(); // prevent default page reload
@@ -9,15 +13,14 @@ form.addEventListener("submit", async (e) => {
         user_id = localStorage.getItem("user_id");
     } catch (error) {
         console.log("Could not get user_id. User is not logged in.");
+        return;
     }
 
     // Collect form data
     const name = document.getElementById("name").value.trim();
-    const continent = document.getElementById("continent").value;
-    const type = document.getElementById("type").value;
+    const continent = getSelectedText(document.getElementById("continent"));
+    const type = getSelectedText(document.getElementById("type"));
     const info = document.getElementById("info").value.trim();
-
-    console.log("Retrieved user_id from localStorage:", user_id);
 
     // Convert to JSON
     const jsonData = {
@@ -31,6 +34,8 @@ form.addEventListener("submit", async (e) => {
 
     try {
         // Send JSON to the backend
+        console.log("Sending monkey data to backend:", jsonData);
+
         const response = await fetch("http://10.102.83.86:7264/api/Monkey", {
             method: "POST",
             headers: {
@@ -47,7 +52,7 @@ form.addEventListener("submit", async (e) => {
         }
 
         const responseData = await response.json();
-        console.log(responseData);
+        console.log("Response data:", responseData);
 
         // Monkey created!
         document.getElementById("success").style.color = "#d1da49";

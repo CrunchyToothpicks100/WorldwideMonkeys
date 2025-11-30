@@ -1,59 +1,64 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <title>WorldWideMonkeys</title>
-        <link href="styles.css" rel="stylesheet">
-        <link href='https://fonts.googleapis.com/css?family=Irish+Grover' rel='stylesheet'>
-        <link href="https://fonts.googleapis.com/css?family=Inconsolata" rel="stylesheet">
-    </head>
-    <body>
-        <!-- Top menu -->
-        <div class="monkey-menu">
-            <div style="margin-left: 20px">
-                WorldWide<span style="font-size: 35px;">Monkeys</span> <span style="font-size: 15px">(and apes!)</span>
-            </div>
-            <div class="menu_items">
-                <button class="subtle_button" onclick="findHome()">&lt; Back to Home</button>
-                <button class="brown_button">Catalog</button>
-                <button class="brown_button" onclick="window.location.href='javascript/dashboard.html'">Dashboard</button>
-                <script type="text/javascript" src="javascript/findhome.js"></script>
-            </div>
-        </div>
 
-        <!-- Create -->
-        <div class="monkey-background">
-            <h2>Create Your Primate</h2>
-            <form id="create-form" class="monkey-form" action="index.html" method="post">
-                <div>
-                    <label for="name">Name: &nbsp;&nbsp;&nbsp;&nbsp;</label>
-                    <input type="text" id="name" required>
-                </div>
-                <div>
-                    <label for="continent">Continent: </label>
-                    <select id="continent" required>
-                        <option value="">-- Select a continent --</option>
-                        <option value="asia">Asia</option>
-                        <option value="africa">Africa</option>
-                        <option value="south_america">South America</option>
-                    </select>
-                </div>
-                <div>
-                    <label for="type">Type: &nbsp;&nbsp;&nbsp;&nbsp;</label>
-                    <select id="type" required>
-                        <!-- See updatemonkeydropdown.js -->
-                    </select>
-                </div>
-                <div>
-                    <label for="info">Info: &nbsp;&nbsp;&nbsp;&nbsp;</label> 
-                    <textarea id="info" rows="5" cols="40"></textarea>
-                </div>
-                <button class="brown_button" type="submit">Create</button>
-                <div id="success"></div>
-            </form>
+<head>
+    <meta charset="utf-8">
+    <title>WorldWideMonkeys</title>
+    <link href="styles.css" rel="stylesheet">
+    <link href='https://fonts.googleapis.com/css?family=Irish+Grover' rel='stylesheet'>
+    <link href="https://fonts.googleapis.com/css?family=Inconsolata" rel="stylesheet">
+</head>
 
-            <script src="javascript/updatemonkeydropdown.js"></script>
-            <script src="javascript/createform.js"></script>
+<body>
+    <!-- Top menu -->
+    <div class="monkey-menu">
+        <div style="margin-left: 20px">
+            WorldWide<span style="font-size: 35px;">Monkeys</span> <span style="font-size: 15px">(and apes!)</span>
         </div>
-    </body>
+        <div class="menu_items">
+            <button class="subtle_button" onclick="findHome()">&lt; Back to Home</button>
+            <button class="brown_button">Catalog</button>
+            <button class="brown_button" onclick="window.location.href='dashboard.html'">Dashboard</button>
+            <script type="text/javascript" src="javascript/findhome.js"></script>
+        </div>
+    </div>
+
+    <!-- Create -->
+    <div class="monkey-background">
+        <h2>Create Your Primate</h2>
+        <form id="create-form" class="monkey-form" action="index.html" method="post">
+            <div>
+                <label for="name">Name: &nbsp;&nbsp;&nbsp;&nbsp;</label>
+                <input type="text" id="name" required>
+            </div>
+            <div>
+                <label for="continent">Continent: </label>
+                <select id="continent" required>
+                    <option value="">-- Select a continent --</option>
+                    <option value="asia">Asia</option>
+                    <option value="africa">Africa</option>
+                    <option value="south_america">South America</option>
+                </select>
+            </div>
+            <div>
+                <label for="type">Type: &nbsp;&nbsp;&nbsp;&nbsp;</label>
+                <select id="type" required>
+                    <!-- See updatemonkeydropdown.js -->
+                </select>
+            </div>
+            <div>
+                <label for="info">Info: &nbsp;&nbsp;&nbsp;&nbsp;</label>
+                <textarea id="info" rows="5" cols="40" maxlength="150" aria-describedby="info-remaining"></textarea>
+            </div>
+            <div class="char-count"><span id="info-remaining">150</span> characters left</div>
+            <button class="brown_button" type="submit">Create</button>
+            <div id="success"></div>
+        </form>
+
+        <script src="javascript/updatemonkeydropdown.js"></script>
+        <script src="javascript/charcount.js"></script>
+        <script src="javascript/createform.js"></script>
+    </div>
+</body>
+
 </html>

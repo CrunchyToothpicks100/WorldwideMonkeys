@@ -17,21 +17,25 @@ function createMonkeyCard(monkey) {
     const card = document.createElement('div');
     card.className = 'monkey-card';
 
-    // IMPORTANT: Normalize possible casing from API (Name vs name)
-    const name = monkey.Name;
-    const type = monkey.Type;
-    const continent = monkey.Continent;
-    const info = monkey.Info;
-    const username = monkey.Username;
+    const name = monkey.name;
+    const type = monkey.type;
+    const continent = monkey.continent;
+    const info = monkey.info;
+    const username = monkey.username;
 
     card.innerHTML = `
-        <div class="monkey-card-inner">
             <img class="monkey-image" src="assets/monkey_pics/${escapeHtml(type)}.jpg" alt="Monkey Image">
             <h3 class="monkey-name">${escapeHtml(name)}</h3>
             <div class="monkey-meta">${escapeHtml(type)} — ${escapeHtml(continent)}</div>
-            <p class="monkey-info">${escapeHtml(info)}</p>
-            <div class="monkey-owner">Created by: ${escapeHtml(username)}</div>
-        </div>`;
+            <p class="monkey-info" style="display: flex; justify-content: space-between; align-items: flex-start; word-break: break-word;">
+                ${escapeHtml(info)}
+                <i class="fa-solid fa-pen-to-square"></i>
+            </p>
+            <div class="monkey-owner" style="display: flex; justify-content: space-between; align-items: flex-end;">
+                Created by: ${escapeHtml(username)}
+                <i class="fa-solid fa-trash-can"></i>
+            </div>
+        `;
 
     return card;
 }
@@ -43,9 +47,11 @@ async function loadMonkeys() {
 
     // Dummy sample cards for testing layout
     if (BYPASS_MONKEY_FETCH) {
+        console.log("Bypassing monkey fetch, inserting sample cards...");
+
         const sample = { 
             Name: 'Jimmy (Sample)', 
-            Type: 'Woolly', 
+            Type: 'Leaf Monkey', 
             Continent: 'South America', 
             Info: 'Jimmy is blah blah blah...',
             Username: localStorage.getItem('username') || 'tester'

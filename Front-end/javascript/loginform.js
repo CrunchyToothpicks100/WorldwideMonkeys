@@ -9,6 +9,7 @@ form.addEventListener("submit", async (e) => {
 
     // Dummy login
     if (BYPASS_LOGIN) {
+        console.log("Bypassing login...");
         document.getElementById("success").style.color = "#d1da49";
         document.getElementById("success").innerHTML = "Login successful! Redirecting...";
 
@@ -43,10 +44,15 @@ form.addEventListener("submit", async (e) => {
         if (!response.ok) {
             // Bad request (400) Invalid username/password (401)
             console.error("Request failed:", response.status);
-            document.getElementById("success").innerHTML = `Error: ${response.status}`;
+            if (response.status === 401) {
+                document.getElementById("success").innerHTML = "Invalid username or password";
+            } else {
+                document.getElementById("success").innerHTML = `Error ${response.status}`;
+            }
             return;
         }
 
+        // Login successful
         const responseData = await response.json();
         console.log(responseData);
         
