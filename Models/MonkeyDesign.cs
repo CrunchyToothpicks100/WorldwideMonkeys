@@ -9,16 +9,16 @@ namespace UserDataappCore.Api.Models
         public int Id { get; set; }
 
         [Required]
-        public string Name { get; set; }
+        public required string Name { get; set; }
 
         [Required]
-        public string Continent { get; set; }
+        public required string Continent { get; set; }
 
         [Required]
-        public string Type { get; set; }
+        public required string Type { get; set; }
 
         [Required]
-        public string Info { get; set; }
+        public required string Info { get; set; }
 
 
        // Link to the user who created it
