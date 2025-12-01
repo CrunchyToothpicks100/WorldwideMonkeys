@@ -1,5 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Win32.SafeHandles;
+using SQLitePCL;
 using System.Threading.Tasks;
 using UserDataappCore.Api.Data;
 using UserDataappCore.Api.Models;
@@ -26,13 +28,28 @@ namespace UserDataappCore.Api.Controllers
 
             var user = await _db.Users.FindAsync(form.UserId);
             if(user == null)
-                return BadRequest("Invalid user ID");
+                return BadRequest(new { message = "User ID not found in database" });
 
             _db.MonkeyDesigns.Add(form);
             await _db.SaveChangesAsync(); //Add monkey to Database
             return Ok(new { message = "Form submitted successfully", monkeyId = form.Id });
         }
-        
+
+        // DELETE: api/Monkeys/{id}
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> DeleteMonkey(int id)
+        {
+            var monkey = await _db.MonkeyDesigns.FindAsync(id);
+            if (monkey == null)
+                return NotFound(new { message = "Monkey not found" });
+
+            _db.MonkeyDesigns.Remove(monkey);
+            await _db.SaveChangesAsync();
+
+            return Ok(new { message = "Monkey removed successfully" });
+        }
+
+
         //GET: Returns all monkey in database 
         [HttpGet("all")]
         public async Task<IActionResult> GetAll()
@@ -75,6 +92,25 @@ namespace UserDataappCore.Api.Controllers
             }).ToList();
 
             return Ok(userMonkeys); // <-- Return the DTOs, not user.Monkeys
+        }
+
+        //PUT: Modifies existing monkey entries
+        [HttpPut("{id}")]
+        public async Task<IActionResult> UpdateMonkey(int id, MonkeyDTO dto)
+        {
+            var existingMonkey = await _db.MonkeyDesigns.FirstOrDefaultAsync(m => m.Id == id);
+
+            if (existingMonkey == null)
+                return NotFound(new {message = "Monkey not found"});
+
+            existingMonkey.Name = dto.Name;
+            existingMonkey.Continent = dto.Continent;
+            existingMonkey.Type = dto.Type;
+            existingMonkey.Info = dto.Info;
+
+            await _db.SaveChangesAsync();
+
+            return Ok(existingMonkey);
         }
 
     }
