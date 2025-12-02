@@ -1,3 +1,4 @@
+import {API_BASE_URL} from './IPConfig.js';
 const form = document.getElementById("create-form");
 
 // helper to get selected option text
@@ -36,7 +37,7 @@ form.addEventListener("submit", async (e) => {
         // Send JSON to the backend
         console.log("Sending monkey data to backend:", jsonData);
 
-        const response = await fetch("http://10.102.83.86:7264/api/Monkey", {
+        const response = await fetch(`${API_BASE_URL}/api/Monkey`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"

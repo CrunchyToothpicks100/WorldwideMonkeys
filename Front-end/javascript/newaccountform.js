@@ -24,7 +24,7 @@ form.addEventListener("submit", async (e) => {
 
     try {
         // Send JSON to the backend
-        const response = await fetch("http://10.102.83.86:7264/api/Users/register", {
+        const response = await fetch(`${API_BASE_URL}/api/Users/register`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"

@@ -37,7 +37,7 @@ function createMonkeyCard(monkey) {
             </div>
         `;
 
-    return card;
+    return card; 
 }
 
 async function loadMonkeys() {
@@ -75,7 +75,7 @@ async function loadMonkeys() {
             return;
         }
 
-        const response = await fetch(`http://10.102.83.86:7264/api/Monkey/user/${userId}`, {
+        const response = await fetch(`${API_BASE_URL}/api/Monkey/user/${userId}`, {
             method: 'GET',
             headers: { 'Content-Type': 'application/json' }
         });
