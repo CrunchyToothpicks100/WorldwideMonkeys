@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>WorldWideMonkeys</title>
+    <link href="styles.css" rel="stylesheet">
+    <link href='https://fonts.googleapis.com/css?family=Irish+Grover' rel='stylesheet'>
+    <link href="https://fonts.googleapis.com/css?family=Inconsolata" rel="stylesheet">
+</head>
+
+<body>
+    <!-- Top menu -->
+    <div class="monkey-menu">
+        <div style="margin-left: 20px">
+            WorldWide<span style="font-size: 35px;">Monkeys</span> <span style="font-size: 15px">(and apes!)</span>
+        </div>
+        <div class="menu_items">
+            <button class="subtle_button" onclick="findHome()">&lt; Back to Home</button>
+            <button class="brown_button" onclick="window.location.href='catalog.html'">Catalog</button>
+            <button class="brown_button" onclick="window.location.href='dashboard.html'">Dashboard</button>
+            <script type="text/javascript" src="javascript/findhome.js"></script>
+        </div>
+    </div>
+
+    <!-- Feedback Form -->
+    <div class="monkey-background">
+        <h2>Leave Feedback</h2>
+        <form id="feedback-form" class="monkey-form" method="post">
+            <input type="text" name="name" placeholder="Your name" required><br><br>
+            <input type="email" name="email" placeholder="Your email" required><br><br>
+            <textarea name="message" placeholder="Your feedback" required></textarea><br><br>
+            <button type="submit" class="brown_button">Send</button>
+        </form>
+    </div>
+</body>
+
+</html>
