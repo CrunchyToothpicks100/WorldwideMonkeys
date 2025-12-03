@@ -37,7 +37,7 @@ async function loadTotalMonkeyLog() {
         // Clear any previous content
         users.innerHTML = countUsers(responseData).toString();
         primates.innerHTML = responseData.length.toString();
-        bananas.innerHTML = '';
+        bananas.innerHTML = '???'; // Placeholder for banana count
 
     } catch (err) {
         console.error('Error connecting to server:', err);
