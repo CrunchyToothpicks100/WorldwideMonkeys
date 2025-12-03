@@ -54,10 +54,6 @@ package-lock.json
 dist/
 build/
 
-### Project-specific secrets and local config ###
-# IPConfig contains local IPs — keep local only
-Front-end/javascript/IPConfig.js
-
 # Environment files
 .env
 .env.*
