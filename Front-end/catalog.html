@@ -22,11 +22,20 @@
         </div>
     </div>
 
-    <!-- Login -->
+    <!-- Catalog -->
     <div class="monkey-background">
-        <h2>All Monkeys</h2>
+        <div style="display: flex; align-items: flex-start; gap: 100px;">
+            <h2>Monkey Catalog</h2>
+            <button id="reload-button" class="brown_button">Reload</button>
+        </div>
 
-    <script src="javascript/dashboard.js"></script>
+        <div id="success"></div>
+
+        <table id="monkey-table"></table>
+
+        <div id="tooltip"></div>
+
+        <script type="module" src="javascript/catalog.js"></script>
     </div>
 </body>
 

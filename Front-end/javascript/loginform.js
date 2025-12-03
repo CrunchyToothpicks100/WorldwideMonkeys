@@ -1,3 +1,5 @@
+import { API_BASE_URL } from './IPConfig.js';
+
 const form = document.getElementById("login-form");
 
 const BYPASS_LOGIN = false;  // Toggle to bypass login for testing purposes
@@ -5,13 +7,13 @@ const BYPASS_LOGIN = false;  // Toggle to bypass login for testing purposes
 form.addEventListener("submit", async (e) => {
     e.preventDefault(); // prevent default page reload
 
-    console.log("Login form submitted");
+    const status = document.getElementById("success");
 
     // Dummy login
     if (BYPASS_LOGIN) {
         console.log("Bypassing login...");
-        document.getElementById("success").style.color = "#d1da49";
-        document.getElementById("success").innerHTML = "Login successful! Redirecting...";
+        status.style.color = "#d1da49";
+        status.innerHTML = "Login successful! Redirecting...";
 
         localStorage.setItem("user_id", 9999);
         localStorage.setItem("username", "TestUser");
@@ -41,13 +43,14 @@ form.addEventListener("submit", async (e) => {
             body: JSON.stringify(jsonData)
         });
 
+        console.log(`Path: ${API_BASE_URL}/api/Users/login`);
+
         if (!response.ok) {
             // Bad request (400) Invalid username/password (401)
-            console.error("Request failed:", response.status);
             if (response.status === 401) {
-                document.getElementById("success").innerHTML = "Invalid username or password";
+                status.innerHTML = "Invalid username or password";
             } else {
-                document.getElementById("success").innerHTML = `Error ${response.status}`;
+                status.innerHTML = `Error: ${response.status}`;
             }
             return;
         }
@@ -56,8 +59,8 @@ form.addEventListener("submit", async (e) => {
         const responseData = await response.json();
         console.log(responseData);
         
-        document.getElementById("success").style.color = "#d1da49";
-        document.getElementById("success").innerHTML = responseData.message;
+        status.style.color = "#d1da49";
+        status.innerHTML = responseData.message;
 
         // Store user_id from API
         localStorage.setItem("user_id", responseData.userID);

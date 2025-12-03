@@ -1,3 +1,5 @@
+import { API_BASE_URL } from './IPConfig.js';
+
 const form = document.getElementById("new-account-form");
 
 form.addEventListener("submit", async (e) => {
@@ -37,7 +39,6 @@ form.addEventListener("submit", async (e) => {
     
         if (!response.ok) { 
             // Account already taken or other server error
-            console.error("Request failed: ", responseData.message);
             document.getElementById("success").innerHTML = `Error: ${responseData.message}`;
             return;
         }

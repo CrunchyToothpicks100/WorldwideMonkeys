@@ -1,4 +1,5 @@
-import {API_BASE_URL} from './IPConfig.js';
+import { API_BASE_URL } from './IPConfig.js';
+
 const form = document.getElementById("create-form");
 
 // helper to get selected option text
@@ -46,9 +47,7 @@ form.addEventListener("submit", async (e) => {
         });
 
         if (!response.ok) {
-            // API is not okay, HTTP Code 3xx, 4xx, or 5xx.
-            console.error("Request failed:", response.status);
-            document.getElementById("success").innerHTML = `${response.status}`;
+            document.getElementById("success").innerHTML = `Error: ${response.status}`;
             return;
         }
 
