@@ -358,3 +358,12 @@ h3 {
     white-space: normal;
     word-wrap: break-word;
 }
+
+/* Screensaver mandrill image */
+#mandrill {
+    position: absolute;
+    width: 100px;
+    height: auto;
+    left: 0;
+    top: 0;
+}
