@@ -63,6 +63,8 @@ function createMonkeyCard(monkey) {
 async function loadMonkeys() {
     const monkeyList = document.getElementById('monkey-list');
     const status = document.getElementById('success');
+    if (status) console.log("Status element found");
+    
     if (!monkeyList) return;
 
     // Dummy sample cards for testing layout
@@ -128,9 +130,9 @@ async function loadMonkeys() {
 }
 
 async function editMonkey(monkey) {
-    const newInfo = prompt("Edit monkey info:", monkey.info);
-    const status = document.getElementById('success');
     const monkeyInfoText = document.querySelector(`div.monkey-card[data-monkey-id='${monkey.id}'] .monkey-info-text`);
+    const newInfo = prompt("Edit monkey info:", monkeyInfoText.innerHTML);
+    const status = document.getElementById('success');
 
     if (newInfo === null || newInfo.trim() === "") return;
 
@@ -152,11 +154,11 @@ async function editMonkey(monkey) {
             return;
         }
 
-        status.style.color = "#d1da49";
-        status.innerHTML = "Monkey updated!";
-        setTimeout(() => { 
-            monkeyInfoText.innerHTML = newInfo.trim(); 
-        }, 1000);
+        if (status) {
+            status.style.color = "#d1da49";
+            status.innerHTML = "Monkey updated!";
+        }
+        monkeyInfoText.innerHTML = newInfo.trim();
 
     } catch (err) {
         console.error('Error connecting to server:', err);

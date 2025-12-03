@@ -86,3 +86,6 @@ Desktop.ini
 
 # Keep this file tracked
 !.gitignore
+
+# Anything python related
+*.py

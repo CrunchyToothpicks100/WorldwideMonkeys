@@ -1,5 +1,5 @@
 import { API_BASE_URL } from './IPConfig.js';
-import { setupTooltips } from './tooltip.js';
+import { setupTooltips } from './catalog_tooltip.js';
 
 document.getElementById('reload-button').addEventListener('click', async () => {
     await loadMonkeyTable();

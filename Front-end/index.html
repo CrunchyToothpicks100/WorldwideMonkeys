@@ -1,75 +1,80 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <title>WorldWideMonkeys</title>
-        <link href="styles.css" rel="stylesheet">
-        <link href="https://fonts.googleapis.com/css?family=Irish+Grover" rel="stylesheet">
-        <link href="https://fonts.googleapis.com/css?family=Inconsolata" rel="stylesheet">
-    </head>
-    <body>
-        <!-- Top menu -->
-        <div class="sticky-menu">
-            <div style="margin-left: 20px">
-                WorldWide<span style="font-size: 35px;">Monkeys</span> <span style="font-size: 15px">(and apes!)</span>
-            </div>
-            <div class="menu_items">
-                <button class="subtle_button">Leave Feedback</button>
-                <button class="brown_button" onclick="window.location.href='login.html'">Log In</button>
-            </div>
+
+<head>
+    <meta charset="utf-8">
+    <title>WorldWideMonkeys</title>
+    <link href="styles.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Irish+Grover" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Inconsolata" rel="stylesheet">
+</head>
+
+<body>
+    <!-- Top menu -->
+    <div class="sticky-menu">
+        <div style="margin-left: 20px">
+            WorldWide<span style="font-size: 35px;">Monkeys</span> <span style="font-size: 15px">(and apes!)</span>
+        </div>
+        <div class="menu_items">
+            <button class="subtle_button">Leave Feedback</button>
+            <button class="brown_button" onclick="window.location.href='login.html'">Log In</button>
+        </div>
+    </div>
+
+    <!-- BIG TEXT -->
+    <div class="main_content">
+        <img src="assets/yellow-arrow.png" class="arrow-overlay" />
+        <h1>Monkeys Needed!</h1>
+        <h3>Log in to get started</h3>
+    </div>
+
+    <!-- Users, Monkeys, Bananas -->
+    <div id="monkey-log" class="log">
+        <div>
+            <div>Users:</div>
+            <div class="data" id="users"></div>
+        </div>
+        <div>
+            <div>Primates:</div>
+            <div class="data" id="primates"></div>
+        </div>
+        <div>
+            <div>Bananas:</div>
+            <div class="data" id="bananas"></div>
         </div>
 
-        <!-- BIG TEXT -->
-        <div class="main_content">
-            <img src="assets/yellow-arrow.png" class="arrow-overlay" />
-            <h1>Monkeys Needed!</h1>
-            <h3>Log in to get started</h3>
-        </div>
+        <script type="module" src="javascript/totalmonkeylog.js"></script>
+    </div>
 
-        <!-- Users, Monkeys, Bananas -->
-        <div id="monkey-log" class="log">
-            <div>
-                <div>Users:</div>
-                <div class="data" id="users">123</div>
-            </div>
-            <div>
-                <div>Primates:</div>
-                <div class="data" id="primates">123</div>
-            </div>
-            <div>
-                <div>Bananas:</div>
-                <div class="data" id="bananas">123</div>
-            </div>
-        </div>
+    <!-- About the Zookeepers -->
+    <div class="about_content">
+        <h1 style="margin-top: 40px; margin-bottom: -15px;">About the Devs</h1>
+        <p>We are computer science students who
+            developed this website as part of our
+            Website Administration coursework at
+            Missouri Southern State University. The project
+            demonstrates our skills in web application
+            design, implementation, and administration.
+            Our fictional zoo concept features an ambitious
+            goal of housing one million monkeys and apes.</p>
+    </div>
 
-        <!-- About the Zookeepers -->
-        <div class="about_content">
-            <h1 style="margin-top: 40px; margin-bottom: -15px;">About the Devs</h1>
-            <p>We are computer science students who 
-                developed this website as part of our 
-                Website Administration coursework at 
-                Missouri Southern State University. The project 
-                demonstrates our skills in web application 
-                design, implementation, and administration. 
-                Our fictional zoo concept features an ambitious 
-                goal of housing one million monkeys and apes.</p>
-        </div>
+    <!-- Top 3 Monkeys -->
+    <div class="top_three_content">
+        <h2>Top 3 Primates:</h2>
+        <p>Under Construction!</p>
+    </div>
 
-        <!-- Top 3 Monkeys -->
-        <div class="top_three_content">
-            <h2>Top 3 Primates:</h2>
-            <p>Under Construction!</p>
+    <!-- Bottom menu -->
+    <div class="footer">
+        <div style="margin: 20px">
+            WorldWide<span style="font-size: 35px;">Monkeys</span> <span style="font-size: 15px">(and apes!)</span>
         </div>
+        <div class="menu_items">
+            <button class="subtle_button">Facebook</button>
+            <button class="subtle_button">YouTube</button>
+        </div>
+    </div>
+</body>
 
-        <!-- Bottom menu -->
-        <div class="footer">
-            <div style="margin: 20px">
-                WorldWide<span style="font-size: 35px;">Monkeys</span> <span style="font-size: 15px">(and apes!)</span>
-            </div>
-            <div class="menu_items">
-                <button class="subtle_button">Facebook</button>
-                <button class="subtle_button">YouTube</button>
-            </div>
-        </div>
-    </body>
 </html>

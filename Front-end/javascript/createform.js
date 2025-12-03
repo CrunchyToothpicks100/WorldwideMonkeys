@@ -3,25 +3,51 @@ import { API_BASE_URL } from './IPConfig.js';
 const form = document.getElementById("create-form");
 
 // helper to get selected option text
-function getSelectedText(selectElement) {
+async function getSelectedText(selectElement) {
     return selectElement.options[selectElement.selectedIndex].text;
+}
+
+async function reachedMonkeyLimit(userId) {
+    const MONKEY_LIMIT = 12;
+    const status = document.getElementById("success");
+
+    const response = await fetch(`${API_BASE_URL}/api/Monkey/user/${userId}`, {
+        method: 'GET',
+        headers: { 'Content-Type': 'application/json' }
+    });
+
+    if (!response.ok) {
+        console.log(`Could not check monkey limit: ${response.status}`);
+        return false;
+    }
+    
+    const data = await response.json();
+
+    const totalMonkeys = data.length;
+    console.log(`User ${userId} has ${totalMonkeys} monkeys.`);
+
+    return totalMonkeys >= MONKEY_LIMIT;
 }
 
 form.addEventListener("submit", async (e) => {
     e.preventDefault(); // prevent default page reload
 
-    var user_id = 0;
-    try {
-        user_id = localStorage.getItem("user_id");
-    } catch (error) {
-        console.log("Could not get user_id. User is not logged in.");
+    const status = document.getElementById("success");
+    const userId = localStorage.getItem('user_id');
+    if (!userId) {
+        status.innerHTML = 'Login Required';
+        return;
+    }
+    
+    if (await reachedMonkeyLimit(userId)) {
+        status.innerHTML = 'Monkey limit reached. Please delete an existing monkey <br>before creating a new one.';
         return;
     }
 
     // Collect form data
     const name = document.getElementById("name").value.trim();
-    const continent = getSelectedText(document.getElementById("continent"));
-    const type = getSelectedText(document.getElementById("type"));
+    const continent = await getSelectedText(document.getElementById("continent"));
+    const type = await getSelectedText(document.getElementById("type"));
     const info = document.getElementById("info").value.trim();
 
     // Convert to JSON
@@ -30,9 +56,8 @@ form.addEventListener("submit", async (e) => {
         Continent: continent,
         Type: type,
         Info: info,
-        UserId: parseInt(user_id) // <-- correct key name
+        UserId: parseInt(userId) // <-- correct key name
     };
-
 
     try {
         // Send JSON to the backend
@@ -47,20 +72,19 @@ form.addEventListener("submit", async (e) => {
         });
 
         if (!response.ok) {
-            document.getElementById("success").innerHTML = `Error: ${response.status}`;
+            status.innerHTML = `Error: ${response.status}`;
             return;
         }
 
         const responseData = await response.json();
         console.log("Response data:", responseData);
 
-        // Monkey created!
-        document.getElementById("success").style.color = "#d1da49";
-        document.getElementById("success").innerHTML = "Monkey Created! Visit your monkey in the dashboard.";
+        status.style.color = "#d1da49";
+        status.innerHTML = "Monkey created! Visit your monkey in the dashboard, <br>or create another one.";
 
     } catch (err) {
         // No response from server
         console.error("Error connecting to server:", err);
-        document.getElementById("success").innerHTML = "Error connecting to server";
+        status.innerHTML = "Error connecting to server";
     }
 });
